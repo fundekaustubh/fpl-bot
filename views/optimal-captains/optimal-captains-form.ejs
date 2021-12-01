@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimal Captain Choice</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+</head>
+
+<body style="background-color: var(--primary-color); font-family: var(--primary-font)">
+    <%- include("../partials/navbar") %>
+        <main class="p-5 d-flex align-items-center justify-content-center flex-column"
+            style="background-color: var(--primary-color)">
+            <h2 class="my-4">Optimal Captain</h2>
+            <div class="form-container" style="width: 40rem">
+                <form method="POST" action="/optimal-captain-choice" enctype="application/x-www-form-urlencoded">
+                    <h6 class="mb-4" for="optimalCaptain">Optimal captain for which gameweek? Select the gameweek.</h6>
+                    <select class="form-select text-dark" aria-label="Default select example"
+                        name="optimalCaptain[gameweek]" id="optimalCaptain" style="width: 100%">
+                        <option class="text-dark" selected value="All">All</option>
+                        <% for( let i=1; i < 21; i++) { %>
+                            <option class="text-dark" value="<%= i %>">
+                                <%= i %>
+                            </option>
+                            <% } %>
+                    </select>
+                    <div class="d-flex justify-content-center">
+                        <button type="reset" class="btn btn-outline-danger mb-2 mt-3 mr-3">Reset</button>
+                        <button type="submit" class="btn btn-outline-success mb-2 mt-3">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </main>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+            integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
